@@ -1,0 +1,48 @@
+{# templates/defaults/signUpPageTemplate.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}SignUp page | Studapart test{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 col-sm-12">
+
+                <div class="card mt-5" style="box-shadow: 0 0 10px rgba(0, 0, 0, .4);">
+                    <div class="card-header" style="background: transparent center / cover no-repeat url(./images/signup_bg.webp); color: #FFFFFF">
+                    <h1 class="display-1 mt-4 mb-4">Signup form</h1>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="row">
+                            <div class="col-sm-12 mb-2">
+                                <label for="sign_up_email_first" class="form-label">Email</label>
+                                {{ form_widget(form.email.first, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-sm-12 mb-3">
+                                <label for="sign_up_email_second" class="form-label">Repeat email</label>
+                                {{ form_widget(form.email.second, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-sm-12 mb-3">
+                                <label for="sign_up_password_first" class="form-label">Password</label>
+                                {{ form_widget(form.password.first, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-sm-12 mb-3">
+                                <label for="sign_up_password_second" class="form-label">Repeat password</label>
+                                {{ form_widget(form.password.second, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-sm-12 mb-3">
+                                <label for="sign_up_phone" class="form-label">Mobile phone number</label>
+                                {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            <div class="col-sm-12 mb-3 text-center">
+                                <button type="submit" class="btn btn-primary" style="text-transform: uppercase">Sign me up</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
